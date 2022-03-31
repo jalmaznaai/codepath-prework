@@ -4,6 +4,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  color: white;
 }
 
 *,
@@ -18,11 +19,17 @@ body {
   font-family: helvetica, arial, sans-serif;
   line-height: 1.5;
   background-color: slategrey;
-  color: white;
+  text-align: center;
 }
 
 h1 {
   font-family: verdana, arial, sans-serif;
+}
+
+gameScoreArea {
+  position: absolute;
+  text-align: right;
+  top: 25px;
 }
 
 button {
@@ -30,44 +37,133 @@ button {
   border-radius: 10px;
 }
 
+.menu {
+  cursor: pointer;
+}
+
 #gameButtonArea > button {
-  width: 200px;
-  height: 200px;
+  width: 175px;
+  height: 175px;
   margin: 2px;
 }
 
 .hidden {
-  display: none;  
+  display: none;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 3px darkgray;
+}
+
+.topright {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+}
+.topright2 {
+  position: absolute;
+  top: 25px;
+  right: 5px;
+  text-align: right;
 }
 
 #button1 {
-    background: lightgreen;
+  background: lightgreen;
+  background-image: radial-gradient(green 1.1px, lightgreen 1.1px);
+  background-size: 22px 22px;
 }
-#button1:active, #button1.lit {
-    background:green;
+#button1:active,
+#button1.lit {
+  background: green;
+  background-image: radial-gradient(lightgreen 1.1px, green 1.1px);
+  background-size: 22px 22px;
 }
 
 #button2 {
-    background: lightblue;
+  background: lightblue;
+  background-image: radial-gradient(blue 1.1px, lightblue 1.1px);
+  background-size: 22px 22px;
 }
-#button2:active, #button2.lit {
-    background:blue;
+#button2:active,
+#button2.lit {
+  background: blue;
+  background-image: radial-gradient(lightblue 1.1px, blue 1.1px);
+  background-size: 22px 22px;
 }
 
 #button3 {
-    background: pink;
+  background: pink;
+  background-image: radial-gradient(red 1.1px, pink 1.1px);
+  background-size: 22px 22px;
 }
-#button3:active, #button3.lit {
-    background:red;
+#button3:active,
+#button3.lit {
+  background: red;
+  background-image: radial-gradient(pink 1.1px, red 1.1px);
+  background-size: 22px 22px;
 }
 
 #button4 {
-    background: lightyellow;
+  background: lightyellow;
+  background-image: radial-gradient(orange 1.1px, lightyellow 1.1px);
+  background-size: 22px 22px;
 }
-#button4:active, #button4.lit {
-    background:yellow;
+#button4:active,
+#button4.lit {
+  background: orange;
+  background-image: radial-gradient(lightyellow 1.1px, orange 1.1px);
+  background-size: 22px 22px;
 }
 
+#button5 {
+  background: coral;
+  background-image: radial-gradient(crimson 1.1px, coral 1.1px);
+  background-size: 22px 22px;
+}
+#button5:active,
+#button5.lit {
+  background: crimson;
+  background-image: radial-gradient(coral 1.1px, crimson 1.1px);
+  background-size: 22px 22px;
+}
+
+#button6 {
+  background: cyan;
+  background-image: radial-gradient(darkcyan 1.1px, cyan 1.1px);
+  background-size: 22px 22px;
+}
+#button6:active,
+#button6.lit {
+  background: darkcyan;
+  background-image: radial-gradient(cyan 1.1px, darkcyan 1.1px);
+  background-size: 22px 22px;
+}
+
+#button7 {
+  background: violet;
+  background-image: radial-gradient(darkviolet 1.1px, violet 1.1px);
+  background-size: 22px 22px;
+}
+#button7:active,
+#button7.lit {
+  background: darkviolet;
+  background-image: radial-gradient(violet 1.1px, darkviolet 1.1px);
+  background-size: 22px 22px;
+}
+
+#button8 {
+  background: lime;
+  background-image: radial-gradient(limegreen 1.1px, lime 1.1px);
+  background-size: 22px 22px;
+}
+#button8:active,
+#button8.lit {
+  background: limegreen;
+  background-image: radial-gradient(lime 1.1px, limegreen 1.1px);
+  background-size: 22px 22px;
+}
 
 /* images and videos max out at full width */
 img,

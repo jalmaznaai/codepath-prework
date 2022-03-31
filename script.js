@@ -306,3 +306,7 @@ function updateScores()
   document.getElementById("score").innerHTML = "Score: " + score;
   document.getElementById("highScore").innerHTML = "High Score: " + highScore;
 }
+
+    loseGame();
+  // add game logic here
+}

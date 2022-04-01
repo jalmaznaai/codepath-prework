@@ -90,16 +90,24 @@ function startGamePlus()
 {
   gamePlaying = true;
   gamePlayingPlus = true;
-  pattern = patternCopy;
-  lives = 3;
+  for(let i = 0; i < pattern.length; i++)
+    {
+      console.log(pattern[i]);
+    }
+  // pattern = {};
+  pattern = [...patternCopy];
   progress = 7;
+  for(let i = 0; i < pattern.length; i++)
+    {
+      console.log(pattern[i]);
+    }
+  lives = 3;
   stop = false;
   document.getElementById("startPlusBtn").classList.add("hidden");
   document.getElementById("stopPlusBtn").classList.remove("hidden");
   document.getElementById("xMark1").classList.remove("hidden");
   document.getElementById("xMark2").classList.remove("hidden");
   document.getElementById("xMark3").classList.remove("hidden");
-  stopBuggyStartPlus();
   playClueSequencePlus();
 }
 
@@ -109,6 +117,8 @@ function stopGamePlus()
   gamePlayingPlus = false;
   document.getElementById("startPlusBtn").classList.remove("hidden");
   document.getElementById("stopPlusBtn").classList.add("hidden");
+  speedReset();
+  stopBuggyStartPlus();
   stop = true;
 }
 
@@ -119,7 +129,7 @@ function skipGame()
   document.getElementById("skipInfo").classList.remove("hidden");
   document.getElementById("body").classList.add("newGameMode");
   playPassSound();
-  stopGamePlus;
+  stopGamePlus();
   stopBuggyStartPlus();
 }
 
@@ -412,10 +422,17 @@ function speedUp()
 {
   if(decreaseCount > 0)
     {
+      console.log(clueHoldTime);
+      console.log(cluePauseTime);
+      console.log(nextClueWaitTime);
   clueHoldTime /= decreaseRate;
   cluePauseTime /= decreaseRate;
   nextClueWaitTime /= decreaseRate;
+      console.log(clueHoldTime);
+      console.log(cluePauseTime);
+      console.log(nextClueWaitTime);
       decreaseCount--
+      
     }
 }
 
@@ -435,6 +452,7 @@ function speedReset()
   clueHoldTime = 500;
   cluePauseTime = 333;
   nextClueWaitTime = 1000;
+  decreaseCount = 5;
 }
 
 function pauseStartPlus()

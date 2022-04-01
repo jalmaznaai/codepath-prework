@@ -34,7 +34,11 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app!
+- [x] Simpler section for users to test out
+- [x] Endless mode with procedurally generated sequences
+- [x] Sequence replay speeding up upon success up to twice the defualt speed
+- [x] Sequence replay slowing down upon a miss down to the default speed
+- [x] Replay seuqence after miss
 
 ## Video Walkthrough (GIF)
 
@@ -47,23 +51,35 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 ![](http://g.recordit.co/zlJm7mzf9L.gif)
 
 ## Reflection Questions
-1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
-[YOUR ANSWER HERE]
+**1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here.**
 
-2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
-[YOUR ANSWER HERE]
+Aside from prior knowledge and the information directly on the prework's instructional page, I used several sources that help teach me aspects of html, javascript, and css that I didn't know before. I also used some code from a user who developed a sleep/wait function that would halt the program for some time, allowing it to be in sync with the notes played. [I'll list the sources I used here in a pastebin, as it contains 25 links in total along with uses and explanations behind them.](https://pastebin.com/2VVHd6SY)
 
-3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
 
-4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
+
+**2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words)**
+
+    At the start, I had the plan for an endless mode that could be accessed after the first predefined eight notes were hit. Since those notes would be the same every time, I wanted a shortcut for users to enter the endless mode relatively quickly. Since the first eight notes are the same every time the user loads the page, I wanted a way for the user to bypass the long wait of the notes playing back. So, I created a function that would halt the sequence replay by setting a boolean to true. The sequence would then check if the boolean was false in each iteration of its for loop before executing. The issue, however, was that the for loop would execute nearly instantly. I was under the assumption that the for loop waited until the audio was finished playing before continuing, but I realized late into my project that the for loop simply queues the oscillator to sound as needed. 
+    So, I looked for any way to delay the for loop so it would be in sync with the sequence playback. I found a method online and used its code, but it didn't have the effect I anticipated. After a long period of experimenting, I tried removing the setTimeout method from the for loop. That instantly fixed my issue, and now the program was running in sync with the notes.
+    Now, I wanted a way to disable the user from interrupting the sequence before it was done during the endless mode. I thought of creating a "clickable" class within HTML/CSS that would be checked whenever the user hit the button. It worked as I thought, but the user could still click and sound notes, which could distract the user from the notes being replayed. So, I found a way to disable the buttons.
+    However, should the user use the current method of skipping to the endless mode (pressing the start/stop buttons 8 times), they'll find that multiple sequences are playing at once. To fix this, I limited the user from starting the endless mode immediately by disabling the start++ button.
+
+**3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words)**
+
+How do asynchronous code and the promise system work in Javascript?
+    This is one that confused me the most. I don't have a complete understanding of what is going on here. The setTimeout function and the sleep function I found were not intuitive to anything I've learned before. I seem to have understood the idea of the playNote functions simply sending orders to the oscillator object, but the setTimeout function seems to behave in two different manners in my code. Not to mention the sleep function and the syntax within that function; I tried to look up the documentation of resolving and promises, but that didn't help much. After my submission, I'll look into these, but for now, I remain unsure.
+
+How does someone format their website to work on all devices?
+    I tried to avoid using any HTML/CSS code that would hard-code my elements to be exactly x pixels from the left and y pixels from the top, as I didn't want some elements to be hidden on smaller screens. I eventually had to do so for my gameScoreArea section, where I wanted to format it in the top-right of my screen but didn't know how to do so without absolute positions being used.
+
+**4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words)**
+
 
 
 
 ## Interview Recording URL Link
 
-[My 5-minute Interview Recording](your-link-here)
+[My 5-minute Interview Recording](https://www.loom.com/share/90acf216d20f49da9e8db8aabbbf1e51)
 
 
 ## License

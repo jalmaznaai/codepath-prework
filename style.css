@@ -18,8 +18,12 @@ body {
   margin: 2em;
   font-family: helvetica, arial, sans-serif;
   line-height: 1.5;
-  background-color: slategrey;
+  background-color: slategray;
   text-align: center;
+}
+.newGameMode
+{
+  background-color: maroon;
 }
 
 h1 {
@@ -51,9 +55,14 @@ button {
   display: none;
 }
 
-.clickable:hover {
+.clickable:hover:not(active) {
   cursor: pointer;
   box-shadow: inset 0px 0px 0px 3px darkgray;
+}
+.clickable:hover:active
+{
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 3px black;
 }
 
 .topright {

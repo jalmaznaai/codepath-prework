@@ -4,7 +4,7 @@
 
 Submitted by: **Joseph Almaznaai**
 
-Time spent: **18** hours spent in total
+Time spent: **20** hours spent in total
 
 Link to project: https://glitch.com/edit/#!/indecisive-jumpy-ambert?path=style.css%3A5%3A25
 
@@ -36,13 +36,12 @@ The following **additional** features are implemented:
 
 - [x] Simpler section for users to test out
 - [x] Endless mode with procedurally generated sequences
-- [x] Sequence replay speeding up upon success up to twice the defualt speed
+- [x] Sequence replay speeding up upon success up to twice the default speed
 - [x] Sequence replay slowing down upon a miss down to the default speed
-- [x] Replay seuqence after miss
+- [x] Replay sequence after miss
 
 ## Video Walkthrough (GIF)
 
-If you recorded multiple GIFs for all the implemented features, you can add them here:
 ![](http://g.recordit.co/QHMMGsdPyx.gif)
 ![](http://g.recordit.co/zKYToXzvN2.gif)
 ![](http://g.recordit.co/qJiXjGYEnY.gif)
@@ -53,28 +52,37 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 ## Reflection Questions
 **1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here.**
 
-Aside from prior knowledge and the information directly on the prework's instructional page, I used several sources that help teach me aspects of html, javascript, and css that I didn't know before. I also used some code from a user who developed a sleep/wait function that would halt the program for some time, allowing it to be in sync with the notes played. [I'll list the sources I used here in a pastebin, as it contains 25 links in total along with uses and explanations behind them.](https://pastebin.com/2VVHd6SY)
+Aside from prior knowledge and the information directly on the prework's instructional page, I used several sources that help teach me aspects of HTML, Javascript, and CSS that I didn't know before. I also used some code from a user who developed a sleep/wait function that would halt the program for some time, allowing it to be in sync with the notes played. [I'll list the sources I used here in a Pastebin, as it contains 25 links in total along with uses and explanations behind them.](https://pastebin.com/2VVHd6SY)
 
 
 
 **2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words)**
 
-    At the start, I had the plan for an endless mode that could be accessed after the first predefined eight notes were hit. Since those notes would be the same every time, I wanted a shortcut for users to enter the endless mode relatively quickly. Since the first eight notes are the same every time the user loads the page, I wanted a way for the user to bypass the long wait of the notes playing back. So, I created a function that would halt the sequence replay by setting a boolean to true. The sequence would then check if the boolean was false in each iteration of its for loop before executing. The issue, however, was that the for loop would execute nearly instantly. I was under the assumption that the for loop waited until the audio was finished playing before continuing, but I realized late into my project that the for loop simply queues the oscillator to sound as needed. 
-    So, I looked for any way to delay the for loop so it would be in sync with the sequence playback. I found a method online and used its code, but it didn't have the effect I anticipated. After a long period of experimenting, I tried removing the setTimeout method from the for loop. That instantly fixed my issue, and now the program was running in sync with the notes.
-    Now, I wanted a way to disable the user from interrupting the sequence before it was done during the endless mode. I thought of creating a "clickable" class within HTML/CSS that would be checked whenever the user hit the button. It worked as I thought, but the user could still click and sound notes, which could distract the user from the notes being replayed. So, I found a way to disable the buttons.
-    However, should the user use the current method of skipping to the endless mode (pressing the start/stop buttons 8 times), they'll find that multiple sequences are playing at once. To fix this, I limited the user from starting the endless mode immediately by disabling the start++ button.
+   At the start, I had the plan for an endless mode that could be accessed after the first predefined eight notes were hit. Since those notes would be the same every time, I wanted a shortcut for users to enter the endless mode relatively quickly. Since the first eight notes are the same every time the user loads the page, I wanted a way for the user to bypass the long wait of the notes playing back. So, I created a function that would halt the sequence replay by setting a boolean to true. The sequence would then check if the boolean was false in each iteration of its for loop before executing. The issue, however, was that the for loop would execute nearly instantly. I was under the assumption that the for loop waited until the audio was finished playing before continuing, but I realized late into my project that the for loop simply queues the oscillator to sound as needed.
+   
+   So, I looked for any way to delay the for loop so it would be in sync with the sequence playback. I found a method online and used its code, but it didn't have the effect I anticipated. After a long period of experimenting, I tried removing the setTimeout method from the for loop. That instantly fixed my issue, and now the program was running in sync with the notes.
+   
+   Now, I wanted a way to disable the user from interrupting the sequence before it was done during the endless mode. I thought of creating a "clickable" class within HTML/CSS that would be checked whenever the user hit the button. It worked as I thought, but the user could still click and sound notes, which could distract the user from the notes being replayed. So, I found a way to disable the buttons.
+   
+   However, should the user use the current method of skipping to the endless mode (pressing the start/stop buttons 8 times), they'll find that multiple sequences are playing at once. To fix this, I limited the user from starting the endless mode immediately by disabling the start++ button.
 
 **3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words)**
 
 How do asynchronous code and the promise system work in Javascript?
-    This is one that confused me the most. I don't have a complete understanding of what is going on here. The setTimeout function and the sleep function I found were not intuitive to anything I've learned before. I seem to have understood the idea of the playNote functions simply sending orders to the oscillator object, but the setTimeout function seems to behave in two different manners in my code. Not to mention the sleep function and the syntax within that function; I tried to look up the documentation of resolving and promises, but that didn't help much. After my submission, I'll look into these, but for now, I remain unsure.
+
+   This is one that confused me the most. I don't have a complete understanding of what is going on here. The setTimeout function and the sleep function I found were not intuitive to anything I've learned before. I seem to have understood the idea of the playNote functions simply sending orders to the oscillator object, but the setTimeout function seems to behave in two different manners in my code. Not to mention the sleep function and the syntax within that function; I tried to look up the documentation of resolving and promises, but that didn't help much. After my submission, I'll look into these, but for now, I remain unsure.
 
 How does someone format their website to work on all devices?
-    I tried to avoid using any HTML/CSS code that would hard-code my elements to be exactly x pixels from the left and y pixels from the top, as I didn't want some elements to be hidden on smaller screens. I eventually had to do so for my gameScoreArea section, where I wanted to format it in the top-right of my screen but didn't know how to do so without absolute positions being used.
+
+   I tried to avoid using any HTML/CSS code that would hard-code my elements to be exactly x pixels from the left and y pixels from the top, as I didn't want some elements to be hidden on smaller screens. I eventually had to do so for my gameScoreArea section, where I wanted to format it in the top-right of my screen but didn't know how to do so without absolute positions being used.
 
 **4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words)**
 
+   I would absolutely complete the two other recommended/optional tasks assigned as part of this assignment. A timer would be fun to implement, as I would have to figure out how much time to give based on how many steps are in the current sequence. But I would also have to not give too much as the game goes on, as the difficulty should ramp up. The custom audio would make the game more appealing, but I would have to spend a while looking for sounds I'd feel good about using in this project. It would probably come down to recording a C-major scale in GarageBand or another similar program.
 
+   The next thing would be to delete a lot of the redundant console logging and documenting the purpose of everything through comments. As it stands, I do not envy the grader who gets assigned my project. With the lack of comments, they would have to rely on the names my functions and variables have, the comments that came with the base project, and nothing else.
+
+   Finally, I would try to work much more on the visuals of my website and guarantee support for all browsers and devices. As it stands, the website isn't an eyesore. But I want to learn enough HTML/CSS to make this website really look appealing. Also, I'm almost certain that the game would be unplayable on displays with weird aspect ratios or small resolutions. Dedicating some time to learning how to navigate and utilize HTML/CSS to its fullest would be the last thing I do with extra time.
 
 
 ## Interview Recording URL Link
@@ -84,7 +92,7 @@ How does someone format their website to work on all devices?
 
 ## License
 
-    Copyright [YOUR NAME]
+    Copyright Joseph Almaznaai
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

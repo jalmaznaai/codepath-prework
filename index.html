@@ -13,21 +13,139 @@
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>
-  <body>
+  <body id="body" onmouseup="stopTone()" class="">
     <!-- this is the start of content -->
     <h1>All of The Light (And Sounds)</h1>
     <p>
       Hey, here's a basic memory game with colors and lights. Just hit buttons
-      in the order that they appear in until you win. Enjoy !
+      in the order that they appear in until you win. Enjoy!
     </p>
-    <button id="startBtn" onclick="startGame()">Start</button>
-    <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
+    <p id="newInfo" class="hidden">
+      Congradulations! Try Start++ for an endless mode! In the future, you can
+      speed through the first 8 rounds to quickly get to endless. Good Luck!
+    </p>
+    <p id="skipInfo" class="hidden">
+      Nice job finding this secret! Try Start++ for an endless mode! To do this
+      again, quickly click the start/stop buttons. Good luck!
+    </p>
+    <button id="startBtn" class="menu" onclick="startGame()">Start</button>
+    <button id="startPlusBtn" class="menu hidden" onclick="startGamePlus()">
+      Start++
+    </button>
+    <button id="stopBtn" class="menu hidden" onclick="stopGame()">Stop</button>
+    <button id="stopPlusBtn" class="menu hidden" onclick="stopGamePlus()">Stop++</button>
 
     <div id="gameButtonArea">
-      <button id="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"></button>
-      <button id="button2" onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"></button>
-      <button id="button3" onclick="guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"></button>
-      <button id="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"></button>
+      <button
+        id="button1"
+        class="clickable"
+        onclick="guess(1)"
+        onmousedown="startTone(1); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button2"
+        class="clickable"
+        onclick="guess(2)"
+        onmousedown="startTone(2); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button3"
+        class="clickable"
+        onclick="guess(3)"
+        onmousedown="startTone(3); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button4"
+        class="clickable"
+        onclick="guess(4)"
+        onmousedown="startTone(4); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <br />
+      <!-- new line character -->
+      <button
+        id="button5"
+        class="clickable"
+        onclick="guess(5)"
+        onmousedown="startTone(5); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button6"
+        class="clickable"
+        onclick="guess(6)"
+        onmousedown="startTone(6); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button7"
+        class="clickable"
+        onclick="guess(7)"
+        onmousedown="startTone(7); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button8"
+        class="clickable"
+        onclick="guess(8)"
+        onmousedown="startTone(8); stopSequence();"
+        onmouseup="stopTone()"
+      ></button>
+    </div>
+    <br />
+    <br />
+    <div id="gameLivesArea">
+      <img
+        id="xMark1"
+        src="https://cdn.glitch.global/09b4344c-69ec-443a-83f2-b53fcce871b0/X-mark.png?v=1648738631763"
+        alt="xmark1"
+        width="100"
+        height="100"
+        class="hidden"
+      />
+      <img
+        id="xMark2"
+        src="https://cdn.glitch.global/09b4344c-69ec-443a-83f2-b53fcce871b0/X-mark.png?v=1648738631763"
+        alt="xmark2"
+        width="100"
+        height="100"
+        class="hidden"
+      />
+      <img
+        id="xMark3"
+        src="https://cdn.glitch.global/09b4344c-69ec-443a-83f2-b53fcce871b0/X-mark.png?v=1648738631763"
+        alt="xmark3"
+        width="100"
+        height="100"
+        class="hidden"
+      />
+    </div>
+    
+    <div id="gameScoreArea">
+      <p id="score" class="topright">
+        Score: 0
+      </p>
+        <br>
+      <p id="highScore" class="topright2">
+        High Score: 0
+      </p>
+    </div>
+
+    <div id="gameAudioArea">
+      <audio
+        id="sectionPass"
+        src="https://cdn.glitch.global/09b4344c-69ec-443a-83f2-b53fcce871b0/sectionpass.mp3?v=1648742822741"
+        type="audio/mpeg"
+      ></audio>
+      <audio
+        id="sectionFail"
+        src="https://cdn.glitch.global/09b4344c-69ec-443a-83f2-b53fcce871b0/sectionfail.mp3?v=1648742772904"
+        type="audio/mpeg"
+      ></audio>
     </div>
   </body>
+  
 </html>
